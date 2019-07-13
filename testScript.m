@@ -2,11 +2,11 @@
 clc;
 
 % Setting the threshold
-rmseThreshold =30;
+rmseThreshold = 4;
 disp(['Used threshold: ' num2str(rmseThreshold)]);
 
 % Setting the image
-imagePath = 'clown.bmp';
+imagePath = 'lena512.bmp';
 
 disp(['Results for image: ' imagePath]);
 
@@ -57,7 +57,7 @@ disp(' ');
 disp('-----------------------------------------------------------------------');
 
 disp(' ');
-disp(['Structural similarity of Whole Image: ' num2str(ssim(OriginalGray, decompressedGray))]);
+disp(['Structural similarity of Whole Image: ' num2str(ssim(double(OriginalGray), double(decompressedGray)))]);
 disp(' ');
 
 % Visualization
