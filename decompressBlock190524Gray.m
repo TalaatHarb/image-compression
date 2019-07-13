@@ -1,4 +1,4 @@
-function generatedMatrix = decompressBlock(n, coffiecents)
+function generatedMatrix = decompressBlock190524Gray(n, coffiecents)
   generatedMatrix = zeros(n);
   coffCount = length(coffiecents);
   if(coffCount == 3)

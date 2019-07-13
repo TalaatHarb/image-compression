@@ -1,4 +1,4 @@
-function [compressedImage, sizeInBits] = compressImage(imagePath, rmseThreshold)
+function [compressedImage, sizeInBits] = compressImage190524(imagePath, rmseThreshold)
   image = imread(imagePath);
   numOfLayers = size(image, 3);
   if(numOfLayers == 3)

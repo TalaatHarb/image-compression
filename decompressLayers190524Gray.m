@@ -1,4 +1,4 @@
-function decompressedLayers = decompressLayers(compressedLayers)
+function decompressedLayers = decompressLayers190524Gray(compressedLayers)
   numOfLayers = compressedLayers(1);
   m = compressedLayers(2);
   n = compressedLayers(3);
@@ -22,7 +22,7 @@ function [lastIndex, decompressedLayer] = decompressLayer(counter, compressedLay
   h = 1;
   while(h < n)
     while(w < m)
-      [tempBlock, lastIndex] = reconstructBlock(counter, compressedLayers);
+      [tempBlock, lastIndex] = reconstructBlock190524Gray(counter, compressedLayers);
       counter = lastIndex;
       decompressedLayer(w:(w+15), h:(h+15)) = tempBlock;
       w = w + 16;

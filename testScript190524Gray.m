@@ -2,7 +2,7 @@
 clc;
 
 % Setting the threshold
-rmseThreshold = 4;
+rmseThreshold = 5;
 disp(['Used threshold: ' num2str(rmseThreshold)]);
 
 % Setting the image
@@ -24,7 +24,7 @@ disp('-----------------------------------------------------------------------');
 disp(' ');
 disp('Compressing from Gray.....');
 startTime = rem(now, 1);
-[compressedLayersFromGray, sizeInBits] = compressLayers(OriginalGray, rmseThreshold);
+[compressedLayersFromGray, sizeInBits] = compressLayers190524Gray(OriginalGray, rmseThreshold);
 endTime = rem(now, 1);
 disp(['Elapsed time in seconds = ' num2str((endTime - startTime) * 24 * 60 * 60)]);
 disp(['Size in bits: ' num2str(sizeInBits)]);
@@ -38,7 +38,7 @@ disp('-----------------------------------------------------------------------');
 disp(' ');
 disp('Decompression from Gray...');
 startTime = rem(now, 1);
-decompressedGray = decompressLayers(compressedLayersFromGray);
+decompressedGray = decompressLayers190524Gray(compressedLayersFromGray);
 endTime = rem(now, 1);
 disp(['Elapsed time in seconds = ' num2str((endTime - startTime) * 24 * 60 * 60)]);
 

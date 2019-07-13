@@ -1,4 +1,4 @@
-function [sizeInBits, coefficients] = compressBlock(matrix, rmseThreshold)
+function [sizeInBits, coefficients] = compressBlock190524Gray(matrix, rmseThreshold)
   
   % Size 16 block
   n = 16;
@@ -7,12 +7,12 @@ function [sizeInBits, coefficients] = compressBlock(matrix, rmseThreshold)
   [order, coefficients] = compress1st(matrix);
   sizeInBits = 2 + order * 3 * 32;
   
-  if(calculateRMSE(decompressBlock(n, coefficients), matrix) > rmseThreshold)
+  if(calculateRMSE(decompressBlock190524Gray(n, coefficients), matrix) > rmseThreshold)
     % Second order approximation
     [order, coefficients] = compress2nd(matrix);
     sizeInBits = 2 + order * 3 * 32;
     
-    if(calculateRMSE(decompressBlock(n, coefficients), matrix) > rmseThreshold)
+    if(calculateRMSE(decompressBlock190524Gray(n, coefficients), matrix) > rmseThreshold)
       % Split matrix
       % Size 8 block
       n = 8;
@@ -29,7 +29,7 @@ function [sizeInBits, coefficients] = compressBlock(matrix, rmseThreshold)
         % First order approximation
         [order, temp] = compress1st(blocks(:, :, i));
         tempSize = 2 + order * 3 * 32;
-        if(calculateRMSE(decompressBlock(n, temp), blocks(:, :, i)) > rmseThreshold)
+        if(calculateRMSE(decompressBlock190524Gray(n, temp), blocks(:, :, i)) > rmseThreshold)
           % Second order approximation
           [order, temp] = compress2nd(blocks(:, :, i));
           tempSize = 2 + order * 3 * 32;

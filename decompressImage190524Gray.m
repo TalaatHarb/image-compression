@@ -1,4 +1,4 @@
-function decompressedImage = decompressImage(compressedImage)
+function decompressedImage = decompressImage190524Gray(compressedImage)
   numOfLayers = compressedImage(1);
   m = compressedImage(2);
   n = compressedImage(3);

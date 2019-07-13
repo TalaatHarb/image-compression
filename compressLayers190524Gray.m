@@ -1,4 +1,4 @@
-function [compressedLayers, sizeInBits] = compressLayers(image, rmseThreshold)
+function [compressedLayers, sizeInBits] = compressLayers190524Gray(image, rmseThreshold)
   numOfLayers = size(image, 3);
   if(numOfLayers == 3)
     [compressed1, size1] = compressLayer(double(image(:, :, 1)), rmseThreshold);
@@ -61,7 +61,7 @@ function [compressedLayer, sizeInBits] = compressLayer(layer, rmseThreshold)
         end
       end
       % TODO: Add better padding
-      [blockBits, temp] = compressBlock(tempBlock, rmseThreshold);
+      [blockBits, temp] = compressBlock190524Gray(tempBlock, rmseThreshold);
       compressedLayer = [compressedLayer; temp];
       sizeInBits = sizeInBits + blockBits;
     end
